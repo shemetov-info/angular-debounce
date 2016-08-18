@@ -21,6 +21,7 @@ angular.module('debounce', [])
         timeout = $timeout(later, wait, invokeApply);
         if (callNow) {
           result = func.apply(context, args);
+          $timeout(function(){}, 0, invokeApply);
         }
         return result;
       }
